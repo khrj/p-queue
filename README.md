@@ -38,7 +38,7 @@ three()
 
 ## API
 
-See https://doc.deno.land/https/deno.land/x/p_queue@1.0.0/src/index.ts
+See https://doc.deno.land/https/deno.land/x/p_queue@1.0.0/mod.ts
 
 ## Events
 
