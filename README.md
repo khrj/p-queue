@@ -272,6 +272,13 @@ They are just different constraints. The `concurrency` option limits how many th
 
 [![Forkers repo roster for @KhushrajRathod/pQueue](https://reporoster.com/forks/KhushrajRathod/pQueue)](https://github.com/KhushrajRathod/pQueue/network/members)
 
+## Related
+
+- [pTimeout](https://github.com/KhushrajRathod/pTimeout)
+- [pRetried](https://github.com/KhushrajRathod/pRetried)
+- [retried](https://github.com/KhushrajRathod/retried)
+- [...more](https://github.com/KhushrajRathod/denoModules)
+
 ## License
 
 - P(romise) Queue is licensed under the MIT license.
