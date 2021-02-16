@@ -8,27 +8,27 @@ Useful for rate-limiting async (or sync) operations. For example, when interacti
 
 Here we run only one promise at the time. For example, set `concurrency` to 4 to run four promises at the same time.
 
-``` js
-import PQueue from 'https://deno.land/x/p_queue@1.0.0/mod.ts'
+```js
+import PQueue from "https://deno.land/x/p_queue@1.0.0/mod.ts"
 
 const queue = new PQueue({
-    concurrency: 1
+    concurrency: 1,
 })
 
-async function one () {
-    await queue.add(() => fetch('https://sindresorhus.com'))
-    console.log('Done: sindresorhus.com')
+async function one() {
+    await queue.add(() => fetch("https://sindresorhus.com"))
+    console.log("Done: sindresorhus.com")
 }
 
-async function two () {
-    await queue.add(() => fetch('https://avajs.dev'))
-    console.log('Done: avajs.dev')
+async function two() {
+    await queue.add(() => fetch("https://avajs.dev"))
+    console.log("Done: avajs.dev")
 }
 
-async function three () {
+async function three() {
     const task = await getUnicornTask()
     await queue.add(task)
-    console.log('Done: Unicorn task')
+    console.log("Done: Unicorn task")
 }
 
 one()
@@ -46,17 +46,19 @@ See https://doc.deno.land/https/deno.land/x/p_queue@1.0.0/mod.ts
 
 Emitted as each item is processed in the queue for the purpose of tracking progress.
 
-``` js
-import PQueue from 'https://deno.land/x/p_queue@1.0.0/mod.ts'
+```js
+import PQueue from "https://deno.land/x/p_queue@1.0.0/mod.ts"
 const delay = (ms: number) => new Promise(r => setTimeout(r, ms))
 
 const queue = new PQueue({
-    concurrency: 2
+    concurrency: 2,
 })
 
 let count = 0
-queue.on('active', () => {
-    console.log(`Working on item #${++count}.  Size: ${queue.size}  Pending: ${queue.pending}`)
+queue.on("active", () => {
+    console.log(
+        `Working on item #${++count}.  Size: ${queue.size}  Pending: ${queue.pending}`,
+    )
 })
 
 queue.add(() => Promise.resolve())
@@ -70,14 +72,16 @@ queue.add(() => delay(500))
 
 Emitted every time the queue becomes empty and all promises have completed `queue.size === 0 && queue.pending === 0` .
 
-``` js
-import PQueue from 'https://deno.land/x/p_queue@1.0.0/mod.ts'
+```js
+import PQueue from "https://deno.land/x/p_queue@1.0.0/mod.ts"
 const delay = (ms: number) => new Promise(r => setTimeout(r, ms))
 
 const queue = new PQueue()
 
-queue.on('idle', () => {
-    console.log(`Queue is idle.  Size: ${queue.size}  Pending: ${queue.pending}`)
+queue.on("idle", () => {
+    console.log(
+        `Queue is idle.  Size: ${queue.size}  Pending: ${queue.pending}`,
+    )
 })
 
 const job1 = queue.add(() => delay(2000))
@@ -101,17 +105,21 @@ Emitted every time the add method is called and the number of pending or queued 
 
 Emitted every time a task is completed and the number of pending or queued tasks is decreased.
 
-``` js
-import PQueue from 'https://deno.land/x/p_queue@1.0.0/mod.ts'
+```js
+import PQueue from "https://deno.land/x/p_queue@1.0.0/mod.ts"
 const delay = (ms: number) => new Promise(r => setTimeout(r, ms))
 
 const queue = new PQueue()
 
-queue.on('add', () => {
-    console.log(`Task is added.  Size: ${queue.size}  Pending: ${queue.pending}`)
+queue.on("add", () => {
+    console.log(
+        `Task is added.  Size: ${queue.size}  Pending: ${queue.pending}`,
+    )
 })
-queue.on('next', () => {
-    console.log(`Task is completed.  Size: ${queue.size}  Pending: ${queue.pending}`)
+queue.on("next", () => {
+    console.log(
+        `Task is completed.  Size: ${queue.size}  Pending: ${queue.pending}`,
+    )
 })
 
 const job1 = queue.add(() => delay(2000))
@@ -119,73 +127,70 @@ const job2 = queue.add(() => delay(500))
 
 await job1
 await job2
-//=> 'Task is added.  Size: 0  Pending: 1'
-//=> 'Task is added.  Size: 0  Pending: 2'
+// => 'Task is added.  Size: 0  Pending: 1'
+// => 'Task is added.  Size: 0  Pending: 2'
 
 await queue.add(() => delay(600))
-//=> 'Task is completed.  Size: 0  Pending: 1'
-//=> 'Task is completed.  Size: 0  Pending: 0'
+// => 'Task is completed.  Size: 0  Pending: 1'
+// => 'Task is completed.  Size: 0  Pending: 0'
 ```
 
 ## Advanced example
 
 A more advanced example to help you understand the flow.
 
-``` js
-import PQueue from 'https://deno.land/x/p_queue@1.0.0/mod.ts'
+```js
+import PQueue from "https://deno.land/x/p_queue@1.0.0/mod.ts"
 const delay = (ms: number) => new Promise(r => setTimeout(r, ms))
 
 const queue = new PQueue({
-    concurrency: 1
+    concurrency: 1,
 })
 
-async function taskOne () {
+async function taskOne() {
     await delay(200)
 
-    console.log(`8. Pending promises: ${queue.pending}`)
-    //=> '8. Pending promises: 0'
+    console.log(`8. Pending promises: ${queue.pending}`)(// => '8. Pending promises: 0'
 
-    (async () => {
-        await queue.add(async () => '🐙')
-        console.log('11. Resolved')
+    async () => {
+        await queue.add(async () => "🐙")
+        console.log("11. Resolved")
     })()
 
-    console.log('9. Added 🐙')
+    console.log("9. Added 🐙")
 
     console.log(`10. Pending promises: ${queue.pending}`)
-    //=> '10. Pending promises: 1'
+    // => '10. Pending promises: 1'
 
     await queue.onIdle()
-    console.log('12. All work is done')
+    console.log("12. All work is done")
 }
 
-async function taskTwo () {
-    await queue.add(async () => '🦄')
-    console.log('5. Resolved')
+async function taskTwo() {
+    await queue.add(async () => "🦄")
+    console.log("5. Resolved")
 }
 
-console.log('1. Added 🦄')
-
+console.log("1. Added 🦄")
 ;(async () => {
-    await queue.add(async () => '🐴')
-    console.log('6. Resolved')
+    await queue.add(async () => "🐴")
+    console.log("6. Resolved")
 })()
-console.log('2. Added 🐴')
-
+console.log("2. Added 🐴")
 ;(async () => {
     await queue.onEmpty()
-    console.log('7. Queue is empty')
+    console.log("7. Queue is empty")
 })()
 
 console.log(`3. Queue size: ${queue.size}`)
-//=> '3. Queue size: 1`
+// => '3. Queue size: 1`
 
 console.log(`4. Pending promises: ${queue.pending}`)
-//=> '4. Pending promises: 1'
+// => '4. Pending promises: 1'
 ```
 
-``` 
-$ node example.js
+```
+$ deno run -A test.ts
 
 01. Added 🦄
 02. Added 🐴
@@ -199,14 +204,13 @@ $ node example.js
 10. Pending promises: 1
 11. Resolved 🐙
 12. All work is done
-
 ```
 
 ## Custom QueueClass
 
 For implementing more complex scheduling policies, you can provide a QueueClass in the options:
 
-``` js
+```js
 class QueueClass {
     constructor() {
         this._queue = []
@@ -230,11 +234,11 @@ class QueueClass {
 }
 
 const queue = new PQueue({
-    queueClass: QueueClass
+    queueClass: QueueClass,
 })
 ```
 
-`p-queue` will call corresponding methods to put and get operations from this queue.
+`p_queue` will call corresponding methods to put and get operations from this queue.
 
 ## FAQ
 
