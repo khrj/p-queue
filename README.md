@@ -1,6 +1,24 @@
-# P(romise) Queue
-
-> Promise queue with concurrency control
+<div align="center">
+    <img src="assets/logo.svg" width="700" height="500" alt="People standing in queue illustration">
+    <h1>Promise Queue</h1>
+    <p>
+        <b>Promise queue with concurrency control. Deno port of <a href="https://github.com/sindresorhus/p-queue">sindresorhus's p-queue for node</a></b>
+    </p>
+    <p>
+        <img alt="build status" src="https://img.shields.io/github/workflow/status/KhushrajRathod/pQueue/Deno?label=checks" >
+        <img alt="language" src="https://img.shields.io/github/languages/top/KhushrajRathod/pQueue" >
+        <img alt="code size" src="https://img.shields.io/github/languages/code-size/KhushrajRathod/pQueue">
+        <img alt="issues" src="https://img.shields.io/github/issues/KhushrajRathod/pQueue" >
+        <img alt="license" src="https://img.shields.io/github/license/KhushrajRathod/pQueue">
+        <img alt="version" src="https://img.shields.io/github/v/release/KhushrajRathod/pQueue">
+    </p>
+    <p>
+        <b><a href="https://deno.land/x/p_queue">View on deno.land</a></b>
+    </p>
+    <br>
+    <br>
+    <br>
+</div>
 
 Useful for rate-limiting async (or sync) operations. For example, when interacting with a REST API or when doing CPU/memory intensive tasks.
 
