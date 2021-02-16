@@ -264,7 +264,15 @@ const queue = new PQueue({
 
 They are just different constraints. The `concurrency` option limits how many things run at the same time. The `intervalCap` option limits how many things run in total during the interval (over time).
 
-## License/Credits
+## Supporters
+
+- HUGE thanks to @sindresorhus -- this repository is mostly his code, modified to work with Deno
+
+[![Stargazers repo roster for @KhushrajRathod/pQueue](https://reporoster.com/stars/KhushrajRathod/pQueue)](https://github.com/KhushrajRathod/pQueue/stargazers)
+
+[![Forkers repo roster for @KhushrajRathod/pQueue](https://reporoster.com/forks/KhushrajRathod/pQueue)](https://github.com/KhushrajRathod/pQueue/network/members)
+
+## License
 
 - P(romise) Queue is licensed under the MIT license.
 - Code is adapted from Sindre's [p-queue for node](https://github.com/sindresorhus/p-queue) (also under the MIT license)
