@@ -27,7 +27,7 @@ Useful for rate-limiting async (or sync) operations. For example, when interacti
 Here we run only one promise at the time. For example, set `concurrency` to 4 to run four promises at the same time.
 
 ```js
-import PQueue from "https://deno.land/x/p_queue@1.0.0/mod.ts"
+import PQueue from "https://deno.land/x/p_queue@1.0.1/mod.ts"
 
 const queue = new PQueue({
     concurrency: 1,
@@ -56,7 +56,7 @@ three()
 
 ## API
 
-See https://doc.deno.land/https/deno.land/x/p_queue@1.0.0/mod.ts
+See https://doc.deno.land/https/deno.land/x/p_queue@1.0.1/mod.ts
 
 ## Events
 
@@ -65,7 +65,7 @@ See https://doc.deno.land/https/deno.land/x/p_queue@1.0.0/mod.ts
 Emitted as each item is processed in the queue for the purpose of tracking progress.
 
 ```js
-import PQueue from "https://deno.land/x/p_queue@1.0.0/mod.ts"
+import PQueue from "https://deno.land/x/p_queue@1.0.1/mod.ts"
 const delay = (ms: number) => new Promise(r => setTimeout(r, ms))
 
 const queue = new PQueue({
@@ -91,7 +91,7 @@ queue.add(() => delay(500))
 Emitted every time the queue becomes empty and all promises have completed `queue.size === 0 && queue.pending === 0` .
 
 ```js
-import PQueue from "https://deno.land/x/p_queue@1.0.0/mod.ts"
+import PQueue from "https://deno.land/x/p_queue@1.0.1/mod.ts"
 const delay = (ms: number) => new Promise(r => setTimeout(r, ms))
 
 const queue = new PQueue()
@@ -124,7 +124,7 @@ Emitted every time the add method is called and the number of pending or queued 
 Emitted every time a task is completed and the number of pending or queued tasks is decreased.
 
 ```js
-import PQueue from "https://deno.land/x/p_queue@1.0.0/mod.ts"
+import PQueue from "https://deno.land/x/p_queue@1.0.1/mod.ts"
 const delay = (ms: number) => new Promise(r => setTimeout(r, ms))
 
 const queue = new PQueue()
@@ -158,7 +158,7 @@ await queue.add(() => delay(600))
 A more advanced example to help you understand the flow.
 
 ```js
-import PQueue from "https://deno.land/x/p_queue@1.0.0/mod.ts"
+import PQueue from "https://deno.land/x/p_queue@1.0.1/mod.ts"
 const delay = (ms: number) => new Promise(r => setTimeout(r, ms))
 
 const queue = new PQueue({
