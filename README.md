@@ -5,12 +5,12 @@
         <b>Promise queue with concurrency control. Deno port of <a href="https://github.com/sindresorhus/p-queue">sindresorhus's p-queue for node</a></b>
     </p>
     <p>
-        <img alt="build status" src="https://img.shields.io/github/workflow/status/KhushrajRathod/pQueue/Deno?label=checks" >
-        <img alt="language" src="https://img.shields.io/github/languages/top/KhushrajRathod/pQueue" >
-        <img alt="code size" src="https://img.shields.io/github/languages/code-size/KhushrajRathod/pQueue">
-        <img alt="issues" src="https://img.shields.io/github/issues/KhushrajRathod/pQueue" >
-        <img alt="license" src="https://img.shields.io/github/license/KhushrajRathod/pQueue">
-        <img alt="version" src="https://img.shields.io/github/v/release/KhushrajRathod/pQueue">
+        <img alt="build status" src="https://img.shields.io/github/workflow/status/khrj/p-queue/Deno?label=checks" >
+        <img alt="language" src="https://img.shields.io/github/languages/top/khrj/p-queue" >
+        <img alt="code size" src="https://img.shields.io/github/languages/code-size/khrj/p-queue">
+        <img alt="issues" src="https://img.shields.io/github/issues/khrj/p-queue" >
+        <img alt="license" src="https://img.shields.io/github/license/khrj/p-queue">
+        <img alt="version" src="https://img.shields.io/github/v/release/khrj/p-queue">
     </p>
     <p>
         <b><a href="https://deno.land/x/p_queue">View on deno.land</a></b>
@@ -268,16 +268,16 @@ They are just different constraints. The `concurrency` option limits how many th
 
 - HUGE thanks to @sindresorhus -- this repository is mostly his code, modified to work with Deno
 
-[![Stargazers repo roster for @KhushrajRathod/pQueue](https://reporoster.com/stars/KhushrajRathod/pQueue)](https://github.com/KhushrajRathod/pQueue/stargazers)
+[![Stargazers repo roster for @khrj/p-queue](https://reporoster.com/stars/khrj/p-queue)](https://github.com/khrj/p-queue/stargazers)
 
-[![Forkers repo roster for @KhushrajRathod/pQueue](https://reporoster.com/forks/KhushrajRathod/pQueue)](https://github.com/KhushrajRathod/pQueue/network/members)
+[![Forkers repo roster for @khrj/p-queue](https://reporoster.com/forks/khrj/p-queue)](https://github.com/khrj/p-queue/network/members)
 
 ## Related
 
-- [pTimeout](https://github.com/KhushrajRathod/pTimeout)
-- [pRetried](https://github.com/KhushrajRathod/pRetried)
-- [retried](https://github.com/KhushrajRathod/retried)
-- [...more](https://github.com/KhushrajRathod/denoModules)
+- [p-timeout](https://github.com/khrj/p-timeout)
+- [p-retried](https://github.com/khrj/p-retried)
+- [retried](https://github.com/khrj/retried)
+- [...more](https://github.com/khrj/deno-modules)
 
 ## License
 
