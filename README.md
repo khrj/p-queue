@@ -73,7 +73,7 @@ const queue = new PQueue({
 })
 
 let count = 0
-queue.on("active", () => {
+queue.addEventListener("active", () => {
     console.log(
         `Working on item #${++count}.  Size: ${queue.size}  Pending: ${queue.pending}`,
     )
@@ -96,7 +96,7 @@ const delay = (ms: number) => new Promise(r => setTimeout(r, ms))
 
 const queue = new PQueue()
 
-queue.on("idle", () => {
+queue.addEventListener("idle", () => {
     console.log(
         `Queue is idle.  Size: ${queue.size}  Pending: ${queue.pending}`,
     )
@@ -129,12 +129,12 @@ const delay = (ms: number) => new Promise(r => setTimeout(r, ms))
 
 const queue = new PQueue()
 
-queue.on("add", () => {
+queue.addEventListener("add", () => {
     console.log(
         `Task is added.  Size: ${queue.size}  Pending: ${queue.pending}`,
     )
 })
-queue.on("next", () => {
+queue.addEventListener("next", () => {
     console.log(
         `Task is completed.  Size: ${queue.size}  Pending: ${queue.pending}`,
     )
